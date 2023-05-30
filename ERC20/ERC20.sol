@@ -3,7 +3,7 @@
 pragma solidity ^0.8.9;
 
 
-interface IERC20 { //interface ERC20
+interface IERC20 { 
 
     function totalSupply() external view returns (uint256);
 
@@ -14,7 +14,7 @@ interface IERC20 { //interface ERC20
 }
 
 
-contract MyToken is IERC20  //contract ERC20Impl
+contract MyToken is IERC20 
 
 {
 
@@ -26,6 +26,24 @@ contract MyToken is IERC20  //contract ERC20Impl
     uint8 public constant decimal=8;
 
     address owner;
+     mapping (address=>uint256) balances;
+
+
+    mapping (address=>mapping (address=>uint)) allowed;
+
+
+    uint totalSupply_=1000 wei;
+
+
+    constructor() public {
+
+        balances[msg.sender]=totalSupply_;
+
+        owner=msg.sender;
+
+       
+
+    }
 }
 
  
