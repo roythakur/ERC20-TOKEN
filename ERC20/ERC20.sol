@@ -40,8 +40,10 @@ contract MyToken is IERC20
         balances[msg.sender]=totalSupply_;
 
         owner=msg.sender;
+    }
+     function totalSupply() public override  view returns (uint256){
 
-       
+        return totalSupply_; 
 
     }
 }
