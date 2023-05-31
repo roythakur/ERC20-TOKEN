@@ -51,6 +51,16 @@ contract MyToken is IERC20
         return balances[account];
 
     }
+    
+    function transfer(address receiver, uint amount) public override
+
+    {
+       require(amount<=balances[msg.sender], "You don't have enough balance");
+
+        balances[msg.sender]-=amount;
+
+        balances[receiver]+=amount;
+    }
 }
 
  
