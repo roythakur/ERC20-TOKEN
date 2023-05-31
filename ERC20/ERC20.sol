@@ -67,6 +67,13 @@ contract MyToken is IERC20
          require(owner==msg.sender,"You do not have access");_;
 
     }
+      function mint (uint _qty) public onlyAdmin{
+
+        totalSupply_+=_qty;
+
+        balances[msg.sender]+=_qty;
+
+    }
 }
 
  
