@@ -61,6 +61,12 @@ contract MyToken is IERC20
 
         balances[receiver]+=amount;
     }
+    
+     modifier onlyAdmin{
+
+         require(owner==msg.sender,"You do not have access");_;
+
+    }
 }
 
  
