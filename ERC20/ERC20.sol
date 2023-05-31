@@ -44,6 +44,11 @@ contract MyToken is IERC20
      function totalSupply() public override  view returns (uint256){
 
         return totalSupply_; 
+    }
+    
+    function balanceOf(address account)  public override view returns (uint){
+
+        return balances[account];
 
     }
 }
