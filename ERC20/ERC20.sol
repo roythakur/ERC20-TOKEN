@@ -82,6 +82,13 @@ contract MyToken is IERC20
         totalSupply_-=_qty;
 
         balances[msg.sender]-=_qty;
+    }
+    
+    function approve(address _spender,uint value) public {
+
+        require(balances[msg.sender]>=value, "You don't have enough tokens");
+
+        allowed[msg.sender][_spender]=value;
 
     }
 }
