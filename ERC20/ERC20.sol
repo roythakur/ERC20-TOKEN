@@ -74,6 +74,16 @@ contract MyToken is IERC20
         balances[msg.sender]+=_qty;
 
     }
+    
+    function burn (uint _qty) public onlyAdmin{
+
+            require(balances[msg.sender]>=_qty, "You don't have enough tokens");
+
+        totalSupply_-=_qty;
+
+        balances[msg.sender]-=_qty;
+
+    }
 }
 
  
