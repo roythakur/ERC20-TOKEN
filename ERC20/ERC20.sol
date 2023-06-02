@@ -91,6 +91,17 @@ contract MyToken is IERC20
         allowed[msg.sender][_spender]=value;
 
     }
+    function transferFrom(address _from, address to, uint _value) public{
+
+        require(allowed[_from][msg.sender]>=_value, "You don't have access enough tokens");
+
+        balances[to]+=_value;
+
+        balances[_from]-=_value;
+
+       allowed[_from][msg.sender]-=_value;
+
+    }
 }
 
  
