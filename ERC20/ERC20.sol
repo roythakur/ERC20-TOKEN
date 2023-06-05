@@ -9,7 +9,7 @@ interface IERC20 {
 
     function balanceOf(address account) external view returns (uint);
 
-    function transfer(address receiver, uint amount) external;// returns (bool);
+    function transfer(address receiver, uint amount) external;
 
 }
 
@@ -100,6 +100,12 @@ contract MyToken is IERC20
         balances[_from]-=_value;
 
        allowed[_from][msg.sender]-=_value;
+
+    }
+    
+    function showAccess(address _from) public view  returns (uint){
+
+        return allowed[_from][msg.sender];
 
     }
 }
